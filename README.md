@@ -10,6 +10,10 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 _Para la base de datos, correr los scripts en SQL Server Managment Studio_
 
+## Contiene 📁
+* Carpeta SQL: Contiene los scripts empleados para la creacion y manejo de la base de datos.
+* Carpeta Proyecto Net: Contiene el back end de la página.
+
 ## Construido con 🛠️
 
 * [Visual Studio 2019 Community](https://visualstudio.microsoft.com/es/) - Editor de código usado
