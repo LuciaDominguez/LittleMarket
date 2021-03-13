@@ -408,6 +408,12 @@ namespace LittleMarket.Model
 
         }
 
+        public LittleMarketBDContext(DbContextOptions<LittleMarketBDContext> options)
+        : base(options)
+        {
+
+        }
+
 
     }
 }
