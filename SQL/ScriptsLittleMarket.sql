@@ -143,7 +143,7 @@ CONSTRAINT FK_PedidoDireccion_Direccion FOREIGN KEY (Id_Direccion) REFERENCES Di
 GO
 CREATE TABLE Comentario(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Comentario VARCHAR(MAX),
+TextoComentario VARCHAR(MAX),
 Id_Usuario INT NOT NULL,
 Id_Producto INT NOT NULL,
 FechaDePublicacion DATE NOT NULL,
