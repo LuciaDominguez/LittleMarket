@@ -22,6 +22,3 @@ _Para la base de datos, correr los scripts en SQL Server Managment Studio_
 * **Lucia Guadalupe Dominguez De la Cruz** 
 * **Roberto Romo Rodriguez**
 * **Yassiel De León Barrionuevo**
-
-
-Nombres de los integrantes del equipo, descripción de la aplicación, descripción de las carpetas contenidas e instrucciones de instalación
