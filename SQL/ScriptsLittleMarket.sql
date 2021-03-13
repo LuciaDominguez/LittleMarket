@@ -55,7 +55,6 @@ UltimaConexion DATE NOT NULL,
 Telefono VARCHAR(13) NOT NULL,
 FechaDeRegistro DATE NOT NULL,
 FechaDeNacimiento DATE NOT NULL,
-MetodoDePago INT,
 Id_MetodoDePago INT,
 CONSTRAINT FK_UsuarioPais_Pais FOREIGN KEY (Id_Pais) REFERENCES Pais(Id),
 CONSTRAINT FK_UsuarioEstado_Estado FOREIGN KEY (Id_Estado) REFERENCES Estado(Id),
@@ -92,7 +91,7 @@ Foto varbinary(max) NOT NULL /*Equivalente a blob pero no cheque bien el tamaño*
 
  CREATE TABLE Video(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Video VARCHAR(MAX) NOT NULL /*Equivalente a blob pero no cheque bien el tamaño*/
+LinkVideo VARCHAR(MAX) NOT NULL /*Equivalente a blob pero no cheque bien el tamaño*/
  );
  GO
 
@@ -104,6 +103,7 @@ Precio INT NOT NULL,
 CantidadAlmacen INT NOT NULL,
 Descripcion VARCHAR(MAX) NOT NULL,
 FechaDePublicacion DATE NOT NULL,
+Nombre VARCHAR(50) NOT NULL,
 Activo BIT NOT NULL,
 Id_Categoria INT NOT NULL
 CONSTRAINT FK_ProductoCategoria_Categoria FOREIGN KEY (Id_Categoria) REFERENCES Categoria(Id)
@@ -143,7 +143,7 @@ CONSTRAINT FK_PedidoDireccion_Direccion FOREIGN KEY (Id_Direccion) REFERENCES Di
 GO
 CREATE TABLE Comentario(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Comentario VARCHAR(MAX),
+TextoComentario VARCHAR(MAX),
 Id_Usuario INT NOT NULL,
 Id_Producto INT NOT NULL,
 FechaDePublicacion DATE NOT NULL,
