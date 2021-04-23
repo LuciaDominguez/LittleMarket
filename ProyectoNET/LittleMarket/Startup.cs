@@ -24,6 +24,15 @@ namespace LittleMarket
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LittleMarketBD", version = "1" });
+            });
+
+            services.AddDBContext<LittleMarketBDContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
