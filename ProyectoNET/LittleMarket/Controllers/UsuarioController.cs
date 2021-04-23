@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LittleMarket.Model;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,27 @@ using System.Threading.Tasks;
 
 namespace LittleMarket.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[Action]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
+        private LittleMarketBDContext dbContext;
+
+        public UsuarioController(LittleMarketBDContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         // GET: api/<UsuarioController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Usuario> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            List<Usuario> usuarios = dbContext.Usuario.Where(Usuario => Usuario.Activo == false).ToList();
+
+            //LINQ
+            //var students = dbContext.Usuario.Where(Usuario => Usuario.Activo == false);
+
+            return usuarios;
         }
 
         // GET api/<UsuarioController>/5
@@ -24,24 +37,6 @@ namespace LittleMarket.Controllers
         public string Get(int id)
         {
             return "value";
-        }
-
-        // POST api/<UsuarioController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<UsuarioController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UsuarioController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

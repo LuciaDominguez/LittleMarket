@@ -41,6 +41,9 @@ namespace LittleMarket
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.SwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolGpo02 v1"));
             }
             else
             {
