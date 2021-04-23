@@ -5718,24 +5718,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ROMO\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\gaby_\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+      "projectUniqueName": "C:\\Users\\gaby_\\OneDrive\\Escritorio\\Septimo\\Base de Datos Multimedia\\Proyectoso\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
       "projectName": "LittleMarket",
-      "projectPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
-      "packagesPath": "C:\\Users\\ROMO\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
+      "projectPath": "C:\\Users\\gaby_\\OneDrive\\Escritorio\\Septimo\\Base de Datos Multimedia\\Proyectoso\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+      "packagesPath": "C:\\Users\\gaby_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gaby_\\OneDrive\\Escritorio\\Septimo\\Base de Datos Multimedia\\Proyectoso\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ROMO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\gaby_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -5793,7 +5797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

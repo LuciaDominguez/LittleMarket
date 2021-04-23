@@ -22,14 +22,65 @@ namespace LittleMarket.Controllers
 
         // GET: api/<UsuarioController>
         [HttpGet]
-        public IEnumerable<Usuario> GetAll()
+
+        IActionResult GetALL()
+        public /*IEnumerable<Usuario>  GetAll() */ IActionResult GetALL()
         {
-            List<Usuario> usuarios = dbContext.Usuario.Where(Usuario => Usuario.Activo == false).ToList();
+            try { 
+            var usuarios = dbContext.Usuario
+                    .Where(Usuario => Usuario.Activo == true)
+                   // .Select(x => new { nombre = x.Name,apellido = x.ApellidoPaterno})
+                    .ToList();
+            //var usuarios = (
+            //from s in dbContext.Usuario
+            //join sSCHOLL in dbcontext.otro
+            //where s.Activo == false
+            //select s
+            //).ToList();
+
+                usuariosCore  usuariosCore = new usuariosCore(dbContext);
+
+                return Ok(usuariosCore.GetAll());
+
+
+                }
+            catch (Exception ex)
+            {
+                throw StatusCode((int)HttpStatusCode.InternalServerError);
+            }
 
             //LINQ
             //var students = dbContext.Usuario.Where(Usuario => Usuario.Activo == false);
 
             return usuarios;
+        }
+
+        [HttpPost]
+        public IActionResult Create()
+        {
+               try
+            {
+                  usuariosCore  usuariosCore = new usuariosCore(dbContext);
+                 Usuario usuario  = new Usuario
+                 {
+                     Nombre = "ejemplo",
+                     ApellidoMaterno = "a",
+                     ApellidoPaterno = "b",
+                     Correo ="coso@hotmail.com",
+                     Contra ="coso123",
+                     Id_Pais =
+                     Activo = true
+                 }
+
+                 usuariosCore.Create(usuario);
+                return Ok("Usuario Agregado Exitosamente");
+
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET api/<UsuarioController>/5
