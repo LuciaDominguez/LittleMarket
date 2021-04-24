@@ -54,13 +54,13 @@ namespace LittleMarket.Controllers
 
         // POST api/<PaisController>
         [HttpPost]
-        public IActionResult Create([FromBody] Pais Pais)
+        public IActionResult Create([FromBody] Pais pais)
         {
             try
             {
                 PaisCore PaisCore = new PaisCore(dbContext);
 
-                PaisCore.Create(Pais);
+                PaisCore.Create(pais);
                 return Ok("Pais Agregado Exitosamente");
             }
             catch (Exception ex)

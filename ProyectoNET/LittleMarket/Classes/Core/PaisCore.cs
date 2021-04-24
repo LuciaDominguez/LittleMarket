@@ -45,7 +45,7 @@ namespace LittleMarket.Classes.Core
                 if (validarUsuario)
                 {
 
-                    dbContext.Add(Pais);
+                    dbContext.Pais.Add(Pais);
                     dbContext.SaveChanges();
 
                 }

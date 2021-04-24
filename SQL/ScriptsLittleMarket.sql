@@ -108,8 +108,6 @@ CONSTRAINT FK_ProductoCategoria_Categoria FOREIGN KEY (Id_Categoria) REFERENCES 
 )
 GO
 
- insert into Producto(Precio, CantidadAlmacen, Descripcion, FechaDePublicacion, Nombre, Activo, Id_Categoria) values('Categoria','Descripcion')
-
 CREATE TABLE Multimedia(
  Id INT PRIMARY KEY IDENTITY NOT NULL,
  Id_Producto INT NOT NULL,
@@ -161,3 +159,5 @@ CONSTRAINT FK_LikeProductoUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Us
 CONSTRAINT FK_LikeProductoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id)
 );
 GO
+
+select * from Pedido

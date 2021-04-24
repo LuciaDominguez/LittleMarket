@@ -408,21 +408,6 @@ namespace LittleMarket.Model
 
         }
 
-        internal void Add(Pais pais)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void Add(Usuario usuario)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
-
         public LittleMarketBDContext(DbContextOptions<LittleMarketBDContext> options)
         : base(options)
         {
