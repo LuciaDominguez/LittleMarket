@@ -1,6 +1,4 @@
-
+*.pdb
 *.dll
-ProyectoNET/LittleMarket/bin/Debug/net5.0/LittleMarket.dll
-ProyectoNET/LittleMarket/bin/Debug/net5.0/LittleMarket.pdb
-ProyectoNET/LittleMarket/bin/Debug/net5.0/LittleMarket.Views.dll
-ProyectoNET/LittleMarket/bin/Debug/net5.0/LittleMarket.Views.pdb
+ProyectoNET/LittleMarket/bin/
+ProyectoNET/LittleMarket/.vs/
