@@ -21,16 +21,11 @@ namespace LittleMarket.Classes.Core
                 //Funciones
                 //Lenguaje
                 //SELECT * FROM Usuario
-                List<Usuario> usuarios = (
-                    (List<Usuario>)(from u in dbContext.Usuario
+                var usuarios = 
+                    (from u in dbContext.Usuario
                     where u.Activo == true
-                    select new
-                    {
-                        Nombre = u.Nombre,
-                        ApellidoP = u.ApellidoPaterno,
-                        ApellidoM = u.ApellidoMaterno
-                    })
-                    );
+                    select u
+                    ).ToList();
 
                 return usuarios;
             }

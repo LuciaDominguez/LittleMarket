@@ -142,3 +142,8 @@ C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\L
 C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\ref\LittleMarket.dll
 C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\LittleMarket.pdb
 C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\LittleMarket.genruntimeconfig.cache
+E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Microsoft.OpenApi.dll
+E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\LittleMarket.MvcApplicationPartsAssemblyInfo.cs

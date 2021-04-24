@@ -1,9 +1,12 @@
+using LittleMarket.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +26,18 @@ namespace LittleMarket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            //services.AddRazorPages();
             services.AddControllers();
 
             ////comentado por error extraño en addswaggergen y adddbcontext
-            /*services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LittleMarketBD", version = "1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "LittleMarketBD", Version = "1" });
             });
 
-           services.AddDBContext<LittleMarketBDContext>(options =>
+           services.AddDbContext<LittleMarketBDContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"))
-            );*/
+            );
 
         }
 
@@ -44,11 +47,9 @@ namespace LittleMarket
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDeveloperExceptionPage();
 
-                ////comentado por error extraño en useswagger y swaggerUI
-                /*app.UseSwagger();
-                app.SwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolGpo02 v1"));*/
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LittleMarket v1"));
 
             }
             else
@@ -67,7 +68,8 @@ namespace LittleMarket
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                //endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

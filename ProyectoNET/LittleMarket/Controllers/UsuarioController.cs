@@ -90,14 +90,11 @@ namespace LittleMarket.Controllers
             }
             catch (Exception ex)
             {
-                throw StatusCode(System.Net.HttpStatusCode.InternalServerError, ex);
+                return StatusCode((int)System.Net.HttpStatusCode.InternalServerError, ex);
             }
         }
 
-        private Exception StatusCode(HttpStatusCode internalServerError, Exception ex)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         // GET api/<UsuarioController>/5
         [HttpGet("{id}")]

@@ -138,16 +138,16 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                  .HasForeignKey("FK_UsuarioEstado_Estado");
+                  .HasForeignKey(x => x.Id_Estado);
 
                 entity.HasOne(e => e.Ciudad) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                 .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                .HasForeignKey("FK_UsuarioCiudad_Ciudad");
+                .HasForeignKey(x => x.Id_Ciudad);
 
 
                 entity.HasOne(e => e.Pais) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                 .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                .HasForeignKey("FK_UsuarioPais_Pais");
+                .HasForeignKey(x => x.Id_Pais);
             });
 
             modelBuilder.Entity<Direccion>(entity =>
