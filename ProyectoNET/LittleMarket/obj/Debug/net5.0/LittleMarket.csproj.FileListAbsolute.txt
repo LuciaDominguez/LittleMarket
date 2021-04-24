@@ -147,3 +147,8 @@ E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\Littl
 E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\Users\ROMO\Desktop\Programacion\Web 2\Proyecto\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\LittleMarket.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gaby_\OneDrive\Escritorio\Septimo\Base de Datos Multimedia\Proyectoso\LittleMarket\ProyectoNET\LittleMarket\obj\Debug\net5.0\LittleMarket.MvcApplicationPartsAssemblyInfo.cs
