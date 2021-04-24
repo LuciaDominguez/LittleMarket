@@ -99,7 +99,7 @@ namespace LittleMarket.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            try
+           /* try
             {
                 PaisCore PaisCore = new PaisCore(dbContext);
 
@@ -115,7 +115,7 @@ namespace LittleMarket.Controllers
             catch (Exception ex)
             {
                 return StatusCode((int)System.Net.HttpStatusCode.InternalServerError, ex);
-            }
+            }*/
         }
     }
 }

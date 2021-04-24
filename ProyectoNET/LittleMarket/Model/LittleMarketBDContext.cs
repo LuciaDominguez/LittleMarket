@@ -51,7 +51,7 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Pais) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Estado) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                  .HasForeignKey("FK_EstadoPais_Pais");
+                  .HasForeignKey(x => x.Id_Pais);
 
 
             });
@@ -70,7 +70,7 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Ciudad) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                  .HasForeignKey("FK_CiudadEstado_Estado");
+                  .HasForeignKey(x => x.Id_Estado);
             });
 
             modelBuilder.Entity<Usuario>(entity =>
@@ -261,7 +261,7 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Categoria) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
               .WithMany(y => y.Producto) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-              .HasForeignKey("FK_ProductoCategoria_Categoria");
+              .HasForeignKey(x => x.Id_Categoria);
 
             });
 
@@ -406,6 +406,21 @@ namespace LittleMarket.Model
             });
 
 
+        }
+
+        internal void Add(Pais pais)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Add(Usuario usuario)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
 
         public LittleMarketBDContext(DbContextOptions<LittleMarketBDContext> options)

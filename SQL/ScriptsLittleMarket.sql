@@ -95,8 +95,6 @@ LinkVideo VARCHAR(MAX) NOT NULL /*Equivalente a blob pero no cheque bien el tama
  );
  GO
 
- 
-
 CREATE TABLE Producto(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 Precio INT NOT NULL,
@@ -109,6 +107,8 @@ Id_Categoria INT NOT NULL
 CONSTRAINT FK_ProductoCategoria_Categoria FOREIGN KEY (Id_Categoria) REFERENCES Categoria(Id)
 )
 GO
+
+ insert into Producto(Precio, CantidadAlmacen, Descripcion, FechaDePublicacion, Nombre, Activo, Id_Categoria) values('Categoria','Descripcion')
 
 CREATE TABLE Multimedia(
  Id INT PRIMARY KEY IDENTITY NOT NULL,

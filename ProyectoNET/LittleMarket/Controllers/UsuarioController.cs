@@ -67,7 +67,7 @@ namespace LittleMarket.Controllers
                 UsuarioCore  usuariosCore = new UsuarioCore(dbContext);
 
 
-         /*   Usuario usuario2 = new Usuario
+            /*Usuario usuario2 = new Usuario
             { 
                     Nombre = "ejemplo",
                     ApellidoMaterno = "a",
