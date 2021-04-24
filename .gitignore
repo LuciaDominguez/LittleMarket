@@ -2,3 +2,4 @@
 *.dll
 ProyectoNET/LittleMarket/bin/
 ProyectoNET/LittleMarket/.vs/
+*.cache

@@ -183,11 +183,11 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Usuario)
                 .WithMany(y => y.Direccion)
-                  .HasForeignKey("FK_DireccionUsuario_Usuario");
+                  .HasForeignKey(x => x.Id_Usuario);
 
                 entity.HasOne(e => e.Ciudad)
                 .WithMany(y => y.Direccion)
-                .HasForeignKey("FK_DireccionCiudad_Ciudad");
+                .HasForeignKey(x => x.Id_Ciudad);
 
             });
 
@@ -333,15 +333,15 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Usuario)
               .WithMany(y => y.Pedido)
-              .HasForeignKey("FK_Pedidousuario_Usuario");
+              .HasForeignKey(x => x.Id_Usuario);
 
                 entity.HasOne(e => e.Producto)
               .WithMany(y => y.Pedido)
-              .HasForeignKey("FK_PedidoProducto_Producto");
+              .HasForeignKey(x => x.Id_Producto);
 
                 entity.HasOne(e => e.Direccion)
               .WithMany(y => y.Pedido)
-              .HasForeignKey("FK_PedidoDireccion_Direccion");
+              .HasForeignKey(x => x.Id_Direccion);
             });
 
             modelBuilder.Entity<Comentario>(entity =>
