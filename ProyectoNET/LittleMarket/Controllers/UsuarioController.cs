@@ -4,16 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace LittleMarket.Controllers
 {
-    [Route("api/[controller]/[Action]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
+       
         private LittleMarketBDContext dbContext;
 
         public UsuarioController(LittleMarketBDContext dbContext)
@@ -58,25 +60,43 @@ namespace LittleMarket.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create()
+        public IActionResult Create([FromBody] Usuario usuario)
         {
+            try
+            {
                 UsuarioCore  usuariosCore = new UsuarioCore(dbContext);
 
 
-            Usuario usuario = new Usuario
-            {
-                Nombre = "ejemplo",
+         /*   Usuario usuario2 = new Usuario
+            { 
+                    Nombre = "ejemplo",
                     ApellidoMaterno = "a",
                     ApellidoPaterno = "b",
                     Correo = "coso@hotmail.com",
                     Contra = "coso123",
                     Id_Pais = 1,
+                    Id_Ciudad =1,
+                    Id_Estado =1,
+                    UltimaConexion = V,
+                    Telefono = "101213134",
+                    FechaDeNacimiento = V,
+                    FechaDeRegistro = V,
                     Activo = true
-            };
+            };*/
 
 
             usuariosCore.Create(usuario);
             return Ok("Usuario Agregado Exitosamente");
+            }
+            catch (Exception ex)
+            {
+                throw StatusCode(System.Net.HttpStatusCode.InternalServerError, ex);
+            }
+        }
+
+        private Exception StatusCode(HttpStatusCode internalServerError, Exception ex)
+        {
+            throw new NotImplementedException();
         }
 
         // GET api/<UsuarioController>/5

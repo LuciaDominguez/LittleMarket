@@ -25,14 +25,11 @@ namespace LittleMarket.Model
         public virtual Pais Pais { get; set; }
         public virtual Estado Estado { get; set; }
         public virtual Ciudad Ciudad { get; set; }
-
         public virtual ICollection<Direccion> Direccion { get; set; }
         public virtual ICollection<Pedido> Pedido { get; set; }
         public virtual ICollection<Comentario> Comentario { get; set; }
         public virtual ICollection<LikeProducto> LikeProducto { get; set; }
 
-
-
-
+      
     }
 }

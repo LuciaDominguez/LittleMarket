@@ -45,9 +45,10 @@ namespace LittleMarket.Classes.Core
             try
             {
                 bool validarUsuario = Validate(usuario);
-
+               
                 if (validarUsuario)
                 {
+
                     dbContext.Add(usuario);
                     dbContext.SaveChanges();
 
@@ -65,13 +66,13 @@ namespace LittleMarket.Classes.Core
 
              try
             {
-                if (String.IsNullOrEmpty(usuario.Nombre) /*|| String.IsNullOrEmpty(usuario.ApellidoMaterno
+               if (String.IsNullOrEmpty(usuario.Nombre) /*|| String.IsNullOrEmpty(usuario.ApellidoMaterno
                      || String.IsNullOrEmpty(usuario.ApellidoPaterno   || String.IsNullOrEmpty(usuario.Ciudad
                       || String.IsNullOrEmpty(usuario.Contra
                        || String.IsNullOrEmpty(usuario.Correo
                         || String.IsNullOrEmpty(usuario.Direccion*/){
 
-                    return false;
+                    return true;
                 }
                 return true;
 
