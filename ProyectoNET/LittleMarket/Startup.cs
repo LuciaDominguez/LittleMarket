@@ -25,14 +25,17 @@ namespace LittleMarket
         {
             services.AddRazorPages();
             services.AddControllers();
-            services.AddSwaggerGen(c =>
+
+            ////comentado por error extraño en addswaggergen y adddbcontext
+            /*services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LittleMarketBD", version = "1" });
             });
 
-            services.AddDBContext<LittleMarketBDContext>(options =>
+           services.AddDBContext<LittleMarketBDContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"))
-            );
+            );*/
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,8 +45,11 @@ namespace LittleMarket
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.SwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolGpo02 v1"));
+
+                ////comentado por error extraño en useswagger y swaggerUI
+                /*app.UseSwagger();
+                app.SwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolGpo02 v1"));*/
+
             }
             else
             {
