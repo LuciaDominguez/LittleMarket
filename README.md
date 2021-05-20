@@ -20,6 +20,7 @@ _Para la base de datos, correr los scripts en SQL Server Managment Studio_
 * [Visual Studio Code](https://code.visualstudio.com/) - Editor de código usado para el Front end
 * [React](https://es.reactjs.org/) - Biblioteca de Javascript
 * [Node js](https://nodejs.org/es/)- Para ejecutar Javascript
+* [npm](https://www.npmjs.com/) - Paquete de modulos
 * [SQL Server Express](https://www.microsoft.com/es-mx/sql-server/sql-server-downloads) - Infraestructura SQL
 * [Microsoft SQL Server Managment Studio 18](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) - Ambiente para manejar SQL
 
