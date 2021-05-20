@@ -1,4 +1,4 @@
-import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, makeStyles, Grid, FormLabel} from '@material-ui/core';
+import { Button, FormControl, IconButton, Input, InputAdornment, InputLabel, makeStyles, Grid} from '@material-ui/core';
 import { Email, VisibilityOff,Visibility} from '@material-ui/icons';
 import user from './resource/user.png';
 import clsx from "clsx";
@@ -16,6 +16,9 @@ const useStyles= makeStyles((theme)=>({
         },
         textField:{
             width: 300
+        },
+        button:{
+            margin: theme.spacing(2)
         },
 }));
 
@@ -37,7 +40,7 @@ export const Login = () =>{
           <div class="container">
             <Grid container alignItems="center" direction="column" justify="center">
                 <div className="header">Inicia Sesión</div>
-                <img src={user} alt="Login-logo" className="img-signup"/>
+                <img src={user} alt="Login-logo" className="img-login"/>
                 
             </Grid>
             <form className={classes.root}>
@@ -75,13 +78,16 @@ export const Login = () =>{
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="contained">Iniciar sesión</Button>
+                        <Button variant="contained" className={classes.button}>Iniciar sesión</Button>
                     </Grid>
                 </Grid>
             </form>
             <Grid container alignItems="center" direction="column" justify="center">
                 <Grid item xs={12}>
                     <Link to="/signup">¿No tienes cuenta? Registrate</Link>
+                </Grid>
+                <Grid item xs={12}>
+                    <a href="https://www.vecteezy.com/free-vector/blue">Blue Vectors by Vecteezy</a>
                 </Grid>
             </Grid>
          </div>

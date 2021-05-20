@@ -2,6 +2,8 @@ import React from 'react'
 import {Button, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles} from '@material-ui/core';
 import { Email, Person, Phone, Visibility, VisibilityOff } from '@material-ui/icons';
 import clsx from "clsx";
+import profile from './resource/profile.png';
+import './Signup.css';
 
 const useStyles= makeStyles((theme)=>({
     root: {
@@ -13,6 +15,9 @@ const useStyles= makeStyles((theme)=>({
         },
         textField:{
             width: 300
+        },
+        button:{
+            margin: theme.spacing(2)
         },
 }));
 
@@ -35,7 +40,7 @@ export const Signup= ()=> {
             <div>
                 <Grid container alignItems="center" direction="column" justify="center">
                     <div className="header">Registro</div>
-
+                    <img src={profile} alt="profile" className="img-signup"></img>
                 </Grid>
                 <form className={classes.root}>
                     <Grid container alignItems="center" direction="column" justify="center">
@@ -114,8 +119,8 @@ export const Signup= ()=> {
                                 }placeholder="Número telefonico"></Input>
                             </FormControl>
                         </Grid>
-                        <Grid>
-                            <Button variant="contained">Registrar</Button>
+                        <Grid item xs={12}>
+                            <Button variant="contained" className={classes.button} >Registrar</Button>
                         </Grid>
                     </Grid>
                 </form>

@@ -3,13 +3,13 @@
     padding: 5px;
 }
 
-.img-signup{
+.img-login{
     width: auto;
     height: 500px;
 }
 
 @media screen and (max-width: 600px) {
-  .img-signup{
+  .img-login{
     width: auto;
     height: 300px;
   }
