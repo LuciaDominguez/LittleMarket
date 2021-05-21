@@ -8,10 +8,10 @@ namespace LittleMarket.Authentication
 {
     public class Authentication
     {
-        public static object Authorize(string jwttoken)
+       /* public static object Authorize(string jwttoken)
         {
             var handler = new JwtSecurityTokenHandler();
             var token = handler.ReadJwtToken(jwttoken);
-        }
+        }*/
     }
 }

@@ -8,7 +8,7 @@ namespace LittleMarket.Model
     public class Pedido
     {
         public int Id { get; set; }
-        public int Id_Usuario { get; set; }
+        public string Id_Usuario { get; set; }
         public int Id_Producto { get; set; }
         public int Cantidad { get; set; }
         public int TotalAPagar { get; set; }

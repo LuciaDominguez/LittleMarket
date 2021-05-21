@@ -6301,24 +6301,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ROMO\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Nath\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+      "projectUniqueName": "C:\\Users\\Nath\\Documents\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
       "projectName": "LittleMarket",
-      "projectPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
-      "packagesPath": "C:\\Users\\ROMO\\.nuget\\packages\\",
-      "outputPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
+      "projectPath": "C:\\Users\\Nath\\Documents\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+      "packagesPath": "C:\\Users\\Nath\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nath\\Documents\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ROMO\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Nath\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

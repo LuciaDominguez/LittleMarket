@@ -9,7 +9,7 @@ namespace LittleMarket.Model
     {
         public int Id { get; set; }
         public string TextoComentario { get; set; }
-        public int Id_Usuario { get; set; }
+        public string Id_Usuario { get; set; }
         public int Id_Producto { get; set; }
         public DateTime FechaDePublicacion { get; set; }
         public bool Activo { get; set; }
