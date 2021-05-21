@@ -35,6 +35,42 @@ namespace LittleMarket.Classes.Core
             }
         }
 
+
+        public List<Usuario> FindByEmail(string email)
+        {
+            try
+            {
+                var usuarios =
+                    (from u in dbContext.Usuario
+                     where u.Correo == email
+                     select u
+                    ).ToList();
+
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Usuario> CheckPassword(string correo, string contra)
+        {
+            try
+            {
+                var usuarios =
+                    (from u in dbContext.Usuario
+                     where u.Correo == correo && u.Contra == contra
+                     select u
+                    ).ToList();
+
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void Create(Usuario usuario)
         {
             try

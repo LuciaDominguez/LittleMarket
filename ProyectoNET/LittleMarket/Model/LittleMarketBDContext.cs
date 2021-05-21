@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace LittleMarket.Model
 {
-    public class LittleMarketBDContext : DbContext
+    public class LittleMarketBDContext : IdentityDbContext<Usuario>
     {
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -25,6 +26,7 @@ namespace LittleMarket.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Pais>(entity =>
             {
                 entity.HasKey(e => e.Id);

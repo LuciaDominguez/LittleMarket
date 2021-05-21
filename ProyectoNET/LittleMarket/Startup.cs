@@ -43,8 +43,8 @@ namespace LittleMarket
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"))
             );
 
-            services.AddIdentity<Usuario, IdentityRole>()
-                .AddEntityFrameworkStores<LittleMarketBDContext>();
+            /*services.AddIdentity<Usuario, IdentityRole>()
+                .AddEntityFrameworkStores<LittleMarketBDContext>();*/
 
             string keyStr = Configuration.GetValue<string>("SecretKey");
             byte[] key = Encoding.ASCII.GetBytes(keyStr);

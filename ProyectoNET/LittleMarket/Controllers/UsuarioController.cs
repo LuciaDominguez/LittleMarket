@@ -59,6 +59,42 @@ namespace LittleMarket.Controllers
 
         }
 
+        public IActionResult FindByEmail(string email)
+        {
+            try
+            {
+                var usuarios = dbContext.Usuario
+                        .Where(Usuario => Usuario.Correo == email)
+                        .ToList();
+
+                UsuarioCore usuariosCore = new UsuarioCore(dbContext);
+
+                return Ok(usuariosCore.FindByEmail(email));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IActionResult CheckPassword(string correo, string contra)
+        {
+            try
+            {
+                var usuarios = dbContext.Usuario
+                        .Where(Usuario => Usuario.Contra == contra && Usuario.Correo == correo)
+                        .ToList();
+
+                UsuarioCore usuariosCore = new UsuarioCore(dbContext);
+
+                return Ok(usuariosCore.CheckPassword(correo, contra));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] Usuario usuario)
         {
