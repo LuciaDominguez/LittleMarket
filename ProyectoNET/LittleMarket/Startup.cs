@@ -1,15 +1,19 @@
 using LittleMarket.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace LittleMarket
@@ -29,7 +33,7 @@ namespace LittleMarket
             //services.AddRazorPages();
             services.AddControllers();
 
-            ////comentado por error extraño en addswaggergen y adddbcontext
+            ////comentado por error extraï¿½o en addswaggergen y adddbcontext
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "LittleMarketBD", Version = "1" });
@@ -39,6 +43,37 @@ namespace LittleMarket
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection"))
             );
 
+            services.AddIdentity<Usuario, IdentityRole>()
+                .AddEntityFrameworkStores<LittleMarketBDContext>();
+
+            string keyStr = Configuration.GetValue<string>("SecretKey");
+            byte[] key = Encoding.ASCII.GetBytes(keyStr);
+
+            services.AddAuthentication(x =>
+            {
+               x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+               x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder
+                    .WithOrigins("*")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
