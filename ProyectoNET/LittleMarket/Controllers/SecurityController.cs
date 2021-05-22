@@ -23,11 +23,12 @@ namespace LittleMarket.Controllers
         private UserManager<AspNetUsers> UserManager;
         private SignInManager<AspNetUsers> SignInManager;
 
-        public SecurityController(UserManager<AspNetUsers> userManager, SignInManager<AspNetUsers> signInManager, IConfiguration configuration)
+        public SecurityController(UserManager<AspNetUsers> userManager, SignInManager<AspNetUsers> signInManager, IConfiguration configuration, LittleMarketBDContext dbContext)
         {
             Configuration = configuration;
             UserManager = userManager;
             SignInManager = signInManager;
+            this.dbContext = dbContext;
         }
 
         public IConfiguration Configuration { get; }
@@ -47,6 +48,17 @@ namespace LittleMarket.Controllers
                     Email = usuario.Correo,
                     UserName = usuario.Nombre
                 }, usuario.Contra);
+
+                var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());
+
+                var usuarios = dbContext.AspNetUsers
+                        .Where(u => u.Email == usuario.Correo)
+                        .FirstOrDefault();
+
+                user.ApellidoMaterno = usuario.ApellidoMaterno;
+                usuarios.ApellidoPaterno = usuario.ApellidoPaterno;
+
+                dbContext.SaveChanges();
 
                 if (!result.Succeeded)
                     return StatusCode((int)HttpStatusCode.InternalServerError, "User create failed");
@@ -72,7 +84,9 @@ namespace LittleMarket.Controllers
                 }*/
 
                 var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());
-                var userUN = await UserManager.FindByNameAsync(usuario.Nombre.ToUpper());
+                var userN = await UserManager.FindByNameAsync(usuario.Nombre.ToUpper());
+
+                user = user ?? userN;
 
                 if (user == null)
                     return StatusCode(404);

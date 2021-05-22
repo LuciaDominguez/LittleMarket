@@ -82,52 +82,52 @@ namespace LittleMarket.Model
 
                 entity.Property(e => e.Nombre)
               .HasMaxLength(50)
-              .IsUnicode(false)
-              .IsRequired();//Es not null
+              .IsUnicode(false);
+              //.IsRequired();//Es not null
 
                 entity.Property(e => e.ApellidoPaterno)
               .HasMaxLength(50)
-              .IsUnicode(false)
-              .IsRequired();//Es not null
+              .IsUnicode(false);
+              //.IsRequired();//Es not null
 
                 entity.Property(e => e.ApellidoMaterno)
               .HasMaxLength(50)
-              .IsUnicode(false)
-              .IsRequired();//Es not null
+              .IsUnicode(false);
+              //.IsRequired();//Es not null
 
                 //entity.HasOne(e => e.Ciudad).WithOne().HasForeignKey(e => e.)
-                entity.Property(e => e.Id_Pais)
-               .IsRequired();//Es not null
-                entity.Property(e => e.Id_Estado)
-               .IsRequired();//Es not null
-                entity.Property(e => e.Id_Ciudad)
-               .IsRequired();//Es not null
+                entity.Property(e => e.Id_Pais);
+               //.IsRequired();//Es not null
+                entity.Property(e => e.Id_Estado);
+               //.IsRequired();//Es not null
+                entity.Property(e => e.Id_Ciudad);
+               //.IsRequired();//Es not null
 
-                entity.Property(e => e.Id_Ciudad)
-              .IsRequired();
+                entity.Property(e => e.Id_Ciudad);
+                //.IsRequired();
 
                 entity.Property(e => e.Activo)
-              .HasColumnType("bit")
-               .IsRequired();
+              .HasColumnType("bit");
+               //.IsRequired();
 
                 entity.Property(e => e.UltimaConexion)
-              .HasColumnType("DATE")
-               .IsRequired();
+              .HasColumnType("DATE");
+               //.IsRequired();
 
                 entity.Property(e => e.Telefono)
-        .HasMaxLength(13)
-        .IsRequired();
+        .HasMaxLength(13);
+                //.IsRequired();
 
                 entity.Property(e => e.FechaDeRegistro)
-            .HasColumnType("DATE")
-             .IsRequired();
+            .HasColumnType("DATE");
+                //.IsRequired();
 
                 entity.Property(e => e.FechaDeNacimiento)
-            .HasColumnType("DATE")
-             .IsRequired();
+            .HasColumnType("DATE");
+                //.IsRequired();
 
-                entity.Property(e => e.Id_MetodoDePago)
-             .IsRequired();
+                entity.Property(e => e.Id_MetodoDePago);
+             //.IsRequired();
 
                 /*entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }

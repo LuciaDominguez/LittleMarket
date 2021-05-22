@@ -66,12 +66,12 @@ ALTER TABLE AspNetUsers
 ADD Id_Pais Int;
 
 ALTER TABLE AspNetUsers
-ALTER COLUMN Id_Ciudad int NOT NULL;
+ALTER COLUMN Telefono nvarchar(50) NULL;
 
 sp_help 'AspNetUsers'
 
 ALTER TABLE AspNetUsers
-ADD FOREIGN KEY (Id_Pais) REFERENCES Pais(Id);
+ADD CONSTRAINT FK_UsuarioPais_Pais FOREIGN KEY (Id_Pais) REFERENCES Pais(Id);
 ALTER TABLE AspNetUsers
 ADD CONSTRAINT FK_UsuarioEstado_Estado FOREIGN KEY (Id_Estado) REFERENCES Estado(Id);
 ALTER TABLE AspNetUsers
@@ -191,15 +191,15 @@ CREATE TABLE [dbo].[AspNetUsers](
 	[ApellidoMaterno] [nvarchar](50) NULL,
 	[Correo] [nvarchar](50) NULL,
 	[Contra] [nvarchar](50) NULL,
-	[Id_Pais] [int] NULL,
-	[Id_Ciudad] [int] NULL,
-	[Id_Estado] [int] NULL,
-	[Activo] [bit] NULL,
-	[UltimaConexion] [Date] NULL,
+	[Id_Pais] [int] NOT NULL,
+	[Id_Ciudad] [int] NOT NULL,
+	[Id_Estado] [int] NOT NULL,
+	[Activo] [bit] NOT NULL,
+	[UltimaConexion] [Date] NOT NULL,
 	[Telefono] [nvarchar](13) NULL,
-	[FechaDeRegistro] [date] NULL,
-	[FechaDeNacimiento] [date] NULL,
-	[Id_MetodoDePago] [int] NULL
+	[FechaDeRegistro] [date] NOT NULL,
+	[FechaDeNacimiento] [date] NOT NULL,
+	[Id_MetodoDePago] [int] NOT NULL
  CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -335,9 +335,9 @@ Comentarios VARCHAR(MAX),
 CONSTRAINT FK_Pedidousuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
 CONSTRAINT FK_PedidoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id),
 CONSTRAINT FK_PedidoDireccion_Direccion FOREIGN KEY (Id_Direccion) REFERENCES Direccion(Id)
-
 );
 GO
+
 CREATE TABLE Comentario(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 TextoComentario VARCHAR(MAX),
@@ -349,6 +349,7 @@ CONSTRAINT FK_ComentarioUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspN
 CONSTRAINT FK_ComentarioProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id)
 );
 GO
+
 CREATE TABLE LikeProducto(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 [Like] BIT NOT NULL,
@@ -361,11 +362,11 @@ GO
 
 select * from AspNetUsers
 
-select * from Usuario
+select * from pedido
 
 UPDATE AspNetUsers
-SET LockoutEnd = '20211114 08:54:00 +10:00'
-WHERE Id = '61363d49-e3c2-4105-b5bc-aea8dc87fe64';
+SET PhoneNumber = '8129438274'
+WHERE Id = 'fc69bace-93e9-4eb1-9dc1-fe6ea3f2f739';
 
 drop table Usuario
 drop table Ciudad
