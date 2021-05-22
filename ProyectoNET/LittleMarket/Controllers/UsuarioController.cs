@@ -34,7 +34,7 @@ namespace LittleMarket.Controllers
             {
                 var usuarios = dbContext.AspNetUsers
                         .Where(AspNetUsers => AspNetUsers.Activo == true)
-                        .Select(x => new { nombre = x.Nombre,apellido = x.ApellidoPaterno})
+                        //.Select(x => new { nombre = x.Nombre,apellido = x.ApellidoPaterno})
                         .ToList();
                 //var usuarios = (
                 //from s in dbContext.Usuario
@@ -57,10 +57,9 @@ namespace LittleMarket.Controllers
                 throw ex;
             }
 
-
         }
 
-        public IActionResult FindByEmail(string email)
+        /*public IActionResult FindByEmail(string email)
         {
             try
             {
@@ -76,9 +75,9 @@ namespace LittleMarket.Controllers
             {
                 throw ex;
             }
-        }
+        }*/
 
-        public IActionResult CheckPassword(string correo, string contra)
+        /*public IActionResult CheckPassword(string correo, string contra)
         {
             try
             {
@@ -94,7 +93,7 @@ namespace LittleMarket.Controllers
             {
                 throw ex;
             }
-        }
+        }*/
 
         [HttpPost]
         public IActionResult Create([FromBody] AspNetUsers usuario)
@@ -102,25 +101,6 @@ namespace LittleMarket.Controllers
             try
             {
                 UsuarioCore  usuariosCore = new UsuarioCore(dbContext);
-
-
-            /*Usuario usuario2 = new Usuario
-            { 
-                    Nombre = "ejemplo",
-                    ApellidoMaterno = "a",
-                    ApellidoPaterno = "b",
-                    Correo = "coso@hotmail.com",
-                    Contra = "coso123",
-                    Id_Pais = 1,
-                    Id_Ciudad =1,
-                    Id_Estado =1,
-                    UltimaConexion = V,
-                    Telefono = "101213134",
-                    FechaDeNacimiento = V,
-                    FechaDeRegistro = V,
-                    Activo = true
-            };*/
-
 
             usuariosCore.Create(usuario);
             return Ok("Usuario Agregado Exitosamente");
@@ -131,7 +111,11 @@ namespace LittleMarket.Controllers
             }
         }
 
-        
+        /*[HttpPost]
+        public IActionResult Login([FromBody] AspNetUsers usuario)
+        {
+
+        }*/
 
         // GET api/<UsuarioController>/5
         [HttpGet("{id}")]

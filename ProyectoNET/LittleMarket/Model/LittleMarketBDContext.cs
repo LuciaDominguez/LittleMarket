@@ -95,16 +95,7 @@ namespace LittleMarket.Model
               .IsUnicode(false)
               .IsRequired();//Es not null
 
-                entity.Property(e => e.Correo)
-          .HasMaxLength(50)
-          .IsUnicode(false)
-          .IsRequired();//Es not null
-
-                entity.Property(e => e.Contra)
-          .HasMaxLength(50)
-          .IsUnicode(false)
-          .IsRequired();//Es not null
-
+                //entity.HasOne(e => e.Ciudad).WithOne().HasForeignKey(e => e.)
                 entity.Property(e => e.Id_Pais)
                .IsRequired();//Es not null
                 entity.Property(e => e.Id_Estado)

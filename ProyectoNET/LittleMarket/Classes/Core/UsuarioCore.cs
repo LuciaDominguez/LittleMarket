@@ -41,7 +41,7 @@ namespace LittleMarket.Classes.Core
         }
 
 
-        public List<AspNetUsers> FindByEmail(string email)
+        /*public List<AspNetUsers> FindByEmail(string email)
         {
             try
             {
@@ -57,9 +57,9 @@ namespace LittleMarket.Classes.Core
             {
                 throw ex;
             }
-        }
+        }*/
 
-        public List<AspNetUsers> CheckPassword(string correo, string contra)
+        /*public List<AspNetUsers> CheckPassword(string correo, string contra)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace LittleMarket.Classes.Core
             {
                 throw ex;
             }
-        }
+        }*/
         public void Create(AspNetUsers usuario)
         {
             try

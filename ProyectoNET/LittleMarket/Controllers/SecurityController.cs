@@ -15,8 +15,10 @@ using System.Threading.Tasks;
 
 namespace LittleMarket.Controllers
 {
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public class SecurityController : ControllerBase
-    {
+    {    
         private LittleMarketBDContext dbContext;
         private UserManager<AspNetUsers> UserManager;
         private SignInManager<AspNetUsers> SignInManager;
@@ -31,6 +33,33 @@ namespace LittleMarket.Controllers
         public IConfiguration Configuration { get; }
 
         [HttpPost]
+        public async Task<IActionResult> SignUp([FromBody] DatosUsuario usuario)
+        {
+            try
+            {
+                //var err = ValidateSignUpModel(signUpModel);
+
+                /*if (err != null)
+                    return StatusCode(err.HttpStatusCode, err);*/
+
+                var result = await UserManager.CreateAsync(new AspNetUsers
+                {
+                    Email = usuario.Correo,
+                    UserName = usuario.Nombre
+                }, usuario.Contra);
+
+                if (!result.Succeeded)
+                    return StatusCode((int)HttpStatusCode.InternalServerError, "User create failed");
+
+                return Ok("User create successful");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Login ([FromBody] DatosUsuario usuario)
         {
             try
@@ -42,7 +71,8 @@ namespace LittleMarket.Controllers
                     return StatusCode(err.HttpStatusCode, err);
                 }*/
 
-                var user = await UserManager.FindByEmailAsync(usuario.Correo);
+                var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());
+                var userUN = await UserManager.FindByNameAsync(usuario.Nombre.ToUpper());
 
                 if (user == null)
                     return StatusCode(404);
@@ -56,7 +86,7 @@ namespace LittleMarket.Controllers
                 var key = Encoding.ASCII.GetBytes(keyStr);
 
                 var claims = new ClaimsIdentity(new[] {
-                    new Claim( ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+                    new Claim( ClaimTypes.NameIdentifier, usuario.Id),
                     new Claim( ClaimTypes.Name, usuario.Nombre)
                 });
 
@@ -71,7 +101,7 @@ namespace LittleMarket.Controllers
 
                 var createdToken = tokenHandler.CreateToken(tokenDescriptor);
 
-                return Ok();
+                return Ok(tokenHandler.WriteToken(createdToken));
             }
             catch (Exception ex)
             {

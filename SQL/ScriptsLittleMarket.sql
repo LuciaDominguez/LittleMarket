@@ -65,9 +65,20 @@ GO
 ALTER TABLE AspNetUsers
 ADD Id_Pais Int;
 
+ALTER TABLE AspNetUsers
+ALTER COLUMN Id_Ciudad int NOT NULL;
+
+sp_help 'AspNetUsers'
 
 ALTER TABLE AspNetUsers
-ADD FOREIGN KEY (Id_Ciudad) REFERENCES Ciudad(Id);
+ADD FOREIGN KEY (Id_Pais) REFERENCES Pais(Id);
+ALTER TABLE AspNetUsers
+ADD CONSTRAINT FK_UsuarioEstado_Estado FOREIGN KEY (Id_Estado) REFERENCES Estado(Id);
+ALTER TABLE AspNetUsers
+ADD CONSTRAINT FK_UsuarioCiudad_Ciudad FOREIGN KEY (Id_Ciudad) REFERENCES Ciudad(Id);
+
+ALTER TABLE AspNetUsers
+DROP CONSTRAINT fk_inv_product_id;
 
 //////////////////////////////////////////////////////////// coso aspnetusers ////////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +86,6 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-
 CREATE TABLE [dbo].[AspNetRoleClaims](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[RoleId] [nvarchar](450) NOT NULL,
@@ -176,20 +186,20 @@ CREATE TABLE [dbo].[AspNetUsers](
 	[LockoutEnd] [datetimeoffset](7) NULL,
 	[LockoutEnabled] [bit] NOT NULL,
 	[AccessFailedCount] [int] NOT NULL,
-	[Nombre] [nvarchar](50) NOT NULL,
+	[Nombre] [nvarchar](50) NULL,
 	[ApellidoPaterno] [nvarchar](50) NULL,
 	[ApellidoMaterno] [nvarchar](50) NULL,
-	[Correo] [nvarchar](50) NOT NULL,
-	[Contra] [nvarchar](50) NOT NULL,
-	[Id_Pais] [int] NOT NULL,
-	[Id_Ciudad] [int] NOT NULL,
-	[Id_Estado] [int] NOT NULL,
-	[Activo] [bit] NOT NULL,
-	[UltimaConexion] [Date] NOT NULL,
-	[Telefono] [nvarchar](13) NOT NULL,
-	[FechaDeRegistro] [date] NOT NULL,
-	[FechaDeNacimiento] [date] NOT NULL,
-	[Id_MetodoDePago] [int] NOT NULL
+	[Correo] [nvarchar](50) NULL,
+	[Contra] [nvarchar](50) NULL,
+	[Id_Pais] [int] NULL,
+	[Id_Ciudad] [int] NULL,
+	[Id_Estado] [int] NULL,
+	[Activo] [bit] NULL,
+	[UltimaConexion] [Date] NULL,
+	[Telefono] [nvarchar](13) NULL,
+	[FechaDeRegistro] [date] NULL,
+	[FechaDeNacimiento] [date] NULL,
+	[Id_MetodoDePago] [int] NULL
  CONSTRAINT [PK_AspNetUsers] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -255,13 +265,13 @@ GO
 
 CREATE TABLE Direccion(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Id_Usuario INT NOT NULL,
+Id_Usuario NVARCHAR(450) NOT NULL,
 Id_Ciudad INT NOT NULL,
 Calle VARCHAR(50) NOT NULL,
 Numero VARCHAR(50) NOT NULL,
 CodigoPostal VARCHAR(6) NOT NULL,
 Departamento VARCHAR(50) NOT NULL,
-CONSTRAINT FK_DireccionUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
+CONSTRAINT FK_DireccionUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
 CONSTRAINT FK_DireccionCiudad_Ciudad FOREIGN KEY (Id_Ciudad) REFERENCES Ciudad(Id)
 );
 GO
@@ -311,10 +321,9 @@ CREATE TABLE Multimedia(
  );
  GO
 
-
 CREATE TABLE Pedido(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
-Id_Usuario INT NOT NULL,
+Id_Usuario NVARCHAR(450) NOT NULL,
 Id_Producto INT NOT NULL,
 Id_Direccion INT NOT NULL,
 Cantidad INT NOT NULL,
@@ -323,7 +332,7 @@ FechaDePedido DATE NOT NULL,
 FechaDeEntrega DATE,
 PedidoRecibido BIT NOT NULL,
 Comentarios VARCHAR(MAX),
-CONSTRAINT FK_Pedidousuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
+CONSTRAINT FK_Pedidousuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
 CONSTRAINT FK_PedidoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id),
 CONSTRAINT FK_PedidoDireccion_Direccion FOREIGN KEY (Id_Direccion) REFERENCES Direccion(Id)
 
@@ -332,11 +341,11 @@ GO
 CREATE TABLE Comentario(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 TextoComentario VARCHAR(MAX),
-Id_Usuario INT NOT NULL,
+Id_Usuario NVARCHAR(450) NOT NULL,
 Id_Producto INT NOT NULL,
 FechaDePublicacion DATE NOT NULL,
 Activo BIT NOT NULL,
-CONSTRAINT FK_ComentarioUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
+CONSTRAINT FK_ComentarioUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
 CONSTRAINT FK_ComentarioProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id)
 );
 GO
@@ -344,8 +353,8 @@ CREATE TABLE LikeProducto(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 [Like] BIT NOT NULL,
 Id_Producto INT NOT NULL,
-Id_Usuario INT NOT NULL,
-CONSTRAINT FK_LikeProductoUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES Usuario(Id),
+Id_Usuario NVARCHAR(450) NOT NULL,
+CONSTRAINT FK_LikeProductoUsuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
 CONSTRAINT FK_LikeProductoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id)
 );
 GO
@@ -354,6 +363,21 @@ select * from AspNetUsers
 
 select * from Usuario
 
+UPDATE AspNetUsers
+SET LockoutEnd = '20211114 08:54:00 +10:00'
+WHERE Id = '61363d49-e3c2-4105-b5bc-aea8dc87fe64';
+
+drop table Usuario
+drop table Ciudad
+drop table Estado
+drop table Pais
+drop table AspNetRoleClaims
+drop table AspNetRoles
+drop table AspNetUserClaims
+drop table AspNetUserLogins
+drop table AspNetUserRoles
+drop table AspNetUsers
+drop table AspNetUserTokens
 drop table Direccion
 drop table Categoria
 drop table Imagen
