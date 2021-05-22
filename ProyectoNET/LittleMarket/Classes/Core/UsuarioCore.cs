@@ -13,7 +13,7 @@ namespace LittleMarket.Classes.Core
         {
             this.dbContext = dbContext;
         }
-        public List<Usuario> GetAll()
+        public List<AspNetUsers> GetAll()
         {
             try
             {
@@ -21,10 +21,15 @@ namespace LittleMarket.Classes.Core
                 //Funciones
                 //Lenguaje
                 //SELECT * FROM Usuario
-                var usuarios = 
-                    (from u in dbContext.Usuario
+                /*var usuarios = 
+                    (from u in dbContext.AspNetUsers
                     where u.Activo == true
                     select u
+                    ).ToList();*/
+
+                var usuarios =
+                    (from u in dbContext.AspNetUsers
+                     select u
                     ).ToList();
 
                 return usuarios;
@@ -36,12 +41,12 @@ namespace LittleMarket.Classes.Core
         }
 
 
-        public List<Usuario> FindByEmail(string email)
+        public List<AspNetUsers> FindByEmail(string email)
         {
             try
             {
                 var usuarios =
-                    (from u in dbContext.Usuario
+                    (from u in dbContext.AspNetUsers
                      where u.Correo == email
                      select u
                     ).ToList();
@@ -54,12 +59,12 @@ namespace LittleMarket.Classes.Core
             }
         }
 
-        public List<Usuario> CheckPassword(string correo, string contra)
+        public List<AspNetUsers> CheckPassword(string correo, string contra)
         {
             try
             {
                 var usuarios =
-                    (from u in dbContext.Usuario
+                    (from u in dbContext.AspNetUsers
                      where u.Correo == correo && u.Contra == contra
                      select u
                     ).ToList();
@@ -71,7 +76,7 @@ namespace LittleMarket.Classes.Core
                 throw ex;
             }
         }
-        public void Create(Usuario usuario)
+        public void Create(AspNetUsers usuario)
         {
             try
             {
@@ -92,7 +97,7 @@ namespace LittleMarket.Classes.Core
             }
         }
 
-        public bool Validate (Usuario usuario)
+        public bool Validate (AspNetUsers usuario)
         {
 
              try

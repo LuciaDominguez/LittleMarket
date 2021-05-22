@@ -1,5 +1,6 @@
 ﻿using LittleMarket.Classes.Core;
 using LittleMarket.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,9 @@ namespace LittleMarket.Controllers
         {
             try
             {
-                var usuarios = dbContext.Usuario
-                        .Where(Usuario => Usuario.Activo == true)
-                        // .Select(x => new { nombre = x.Name,apellido = x.ApellidoPaterno})
+                var usuarios = dbContext.AspNetUsers
+                        .Where(AspNetUsers => AspNetUsers.Activo == true)
+                        .Select(x => new { nombre = x.Nombre,apellido = x.ApellidoPaterno})
                         .ToList();
                 //var usuarios = (
                 //from s in dbContext.Usuario
@@ -63,7 +64,7 @@ namespace LittleMarket.Controllers
         {
             try
             {
-                var usuarios = dbContext.Usuario
+                var usuarios = dbContext.AspNetUsers
                         .Where(Usuario => Usuario.Correo == email)
                         .ToList();
 
@@ -81,7 +82,7 @@ namespace LittleMarket.Controllers
         {
             try
             {
-                var usuarios = dbContext.Usuario
+                var usuarios = dbContext.AspNetUsers
                         .Where(Usuario => Usuario.Contra == contra && Usuario.Correo == correo)
                         .ToList();
 
@@ -96,7 +97,7 @@ namespace LittleMarket.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Usuario usuario)
+        public IActionResult Create([FromBody] AspNetUsers usuario)
         {
             try
             {

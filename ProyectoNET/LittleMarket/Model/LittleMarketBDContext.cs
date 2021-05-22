@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace LittleMarket.Model
 {
-    public class LittleMarketBDContext : IdentityDbContext<Usuario>
+    public class LittleMarketBDContext : IdentityDbContext<AspNetUsers>
     {
 
         public DbSet<Categoria> Categoria { get; set; }
@@ -21,7 +21,7 @@ namespace LittleMarket.Model
         public DbSet<Pais> Pais { get; set; }
         public DbSet<Pedido> Pedido { get; set; }
         public DbSet<Producto> Producto { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<AspNetUsers> AspNetUsers { get; set; }
         public DbSet<Video> Video { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -75,9 +75,9 @@ namespace LittleMarket.Model
                   .HasForeignKey(x => x.Id_Estado);
             });
 
-            modelBuilder.Entity<Usuario>(entity =>
+            modelBuilder.Entity<AspNetUsers>(entity =>
             {
-                entity.HasKey(e => e.Id);
+                //entity.HasKey(e => e.Id);
 
 
                 entity.Property(e => e.Nombre)
@@ -138,7 +138,7 @@ namespace LittleMarket.Model
                 entity.Property(e => e.Id_MetodoDePago)
              .IsRequired();
 
-                entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
+                /*entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
                   .HasForeignKey(x => x.Id_Estado);
 
@@ -149,7 +149,7 @@ namespace LittleMarket.Model
 
                 entity.HasOne(e => e.Pais) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                 .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }
-                .HasForeignKey(x => x.Id_Pais);
+                .HasForeignKey(x => x.Id_Pais);*/
             });
 
             modelBuilder.Entity<Direccion>(entity =>

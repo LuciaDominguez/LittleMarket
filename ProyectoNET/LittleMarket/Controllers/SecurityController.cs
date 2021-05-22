@@ -18,10 +18,10 @@ namespace LittleMarket.Controllers
     public class SecurityController : ControllerBase
     {
         private LittleMarketBDContext dbContext;
-        private UserManager<Usuario> UserManager;
-        private SignInManager<Usuario> SignInManager;
+        private UserManager<AspNetUsers> UserManager;
+        private SignInManager<AspNetUsers> SignInManager;
 
-        public SecurityController(UserManager<Usuario> userManager, SignInManager<Usuario> signInManager, IConfiguration configuration)
+        public SecurityController(UserManager<AspNetUsers> userManager, SignInManager<AspNetUsers> signInManager, IConfiguration configuration)
         {
             Configuration = configuration;
             UserManager = userManager;

@@ -8,7 +8,7 @@ namespace LittleMarket.Model
     public class Direccion
     {
         public int Id { get; set; }
-        public int Id_Usuario { get; set; }
+        public string Id_Usuario { get; set; }
         public int Id_Ciudad { get; set; }
 
         public string Calle { get; set; }
