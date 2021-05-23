@@ -39,7 +39,7 @@ namespace LittleMarket.Controllers
 
         // POST api/<PedidoController>
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public IActionResult Create([FromBody] Pedido pedido)
         {
             try

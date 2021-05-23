@@ -68,7 +68,7 @@ ADD Id_Pais Int;
 ALTER TABLE AspNetUsers
 ALTER COLUMN Telefono nvarchar(50) NULL;
 
-sp_help 'AspNetUsers'
+
 
 ALTER TABLE AspNetUsers
 ADD CONSTRAINT FK_UsuarioPais_Pais FOREIGN KEY (Id_Pais) REFERENCES Pais(Id);
@@ -84,8 +84,8 @@ DROP CONSTRAINT FK_UsuarioEstado_Estado;
 ALTER TABLE AspNetUsers
 DROP CONSTRAINT FK_UsuarioCiudad_Ciudad;
 
-//////////////////////////////////////////////////////////// coso aspnetusers ////////////////////////////////////////////////////////////////////////////
-
+/*//////////////////////////////////////////////////////////// coso aspnetusers ////////////////////////////////////////////////////////////////////////////
+*/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -265,8 +265,8 @@ GO
 ALTER TABLE [dbo].[AspNetUserTokens] CHECK CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId]
 GO
 
-//////////////////////////////////////////////////////////////// coso aspnetusers //////////////////////////////////////////////////////////////////
-
+/*//////////////////////////////////////////////////////////////// coso aspnetusers //////////////////////////////////////////////////////////////////
+*/
 CREATE TABLE Direccion(
 Id INT PRIMARY KEY IDENTITY NOT NULL,
 Id_Usuario NVARCHAR(450) NOT NULL,
@@ -337,8 +337,7 @@ FechaDeEntrega DATE,
 PedidoRecibido BIT NOT NULL,
 Comentarios VARCHAR(MAX),
 CONSTRAINT FK_Pedidousuario_Usuario FOREIGN KEY (Id_Usuario) REFERENCES AspNetUsers(Id),
-CONSTRAINT FK_PedidoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id),
-CONSTRAINT FK_PedidoDireccion_Direccion FOREIGN KEY (Id_Direccion) REFERENCES Direccion(Id)
+CONSTRAINT FK_PedidoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id)
 );
 GO
 
@@ -364,33 +363,4 @@ CONSTRAINT FK_LikeProductoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES
 );
 GO
 
-select * from AspNetUsers
 
-delete from AspNetUsers where Id = '824705ab-8743-431d-a854-964ff1745c3e'
-
-select * from pedido
-
-UPDATE AspNetUsers
-SET PhoneNumber = '8129438274'
-WHERE Id = 'fc69bace-93e9-4eb1-9dc1-fe6ea3f2f739';
-
-drop table Usuario
-drop table Ciudad
-drop table Estado
-drop table Pais
-drop table AspNetRoleClaims
-drop table AspNetRoles
-drop table AspNetUserClaims
-drop table AspNetUserLogins
-drop table AspNetUserRoles
-drop table AspNetUsers
-drop table AspNetUserTokens
-drop table Direccion
-drop table Categoria
-drop table Imagen
-drop table Video
-drop table Producto
-drop table Multimedia
-drop table Pedido
-drop table Comentario
-drop table LikeProducto

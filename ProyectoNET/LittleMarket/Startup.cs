@@ -31,6 +31,7 @@ namespace LittleMarket
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddRazorPages();
+            services.AddCors();
             services.AddControllers();
 
             ////comentado por error extra�o en addswaggergen y adddbcontext
@@ -70,7 +71,7 @@ namespace LittleMarket
             {
                 options.AddPolicy("AllowOrigin",
                     builder => builder
-                    .WithOrigins("*")
+                    .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });

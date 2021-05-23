@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -54,6 +55,7 @@ namespace LittleMarket.Controllers
 
         // POST api/<PaisController>
         [HttpPost]
+        [Authorize]
         public IActionResult Create([FromBody] Pais pais)
         {
             try

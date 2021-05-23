@@ -3,3 +3,6 @@
 ProyectoNET/LittleMarket/bin/
 ProyectoNET/LittleMarket/.vs/
 *.cache
+*.cache
+ProyectoNET/LittleMarket/appsettings.json
+*.json
