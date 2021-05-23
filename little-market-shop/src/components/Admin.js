@@ -1,10 +1,14 @@
 import React from 'react'
+import CreateProduct from './fragments/CreateProduct'
+import CreateCategory from './fragments/CreateCategory'
+
 
 export const Admin=()=> {
     return (
-        <div>
-            <p>ADMIN</p>
-        </div>
+        <>
+             <CreateProduct/>
+             <CreateCategory/>
+        </>
     )
 }
 

@@ -1,0 +1,33 @@
+.comment{
+    width:600px;
+    word-wrap: break-word;
+    padding: 10px;
+}
+.headComment{
+    display: inline-block;
+}
+.commentStyle{
+    margin: 10px;
+    width: 500px;
+    padding: 5px;
+    
+}
+.nameComment{
+    font-size: 20px;
+    margin-left: 5px;
+    font-style: bold;
+}
+
+@media screen and (max-width:600px) {
+    .commentStyle{
+        margin: 10px;
+        width: 300px;
+        padding: 5px;
+    }
+    .comment{
+        width:300px;
+        word-wrap: break-word;
+        padding: 10px;
+    }
+
+}

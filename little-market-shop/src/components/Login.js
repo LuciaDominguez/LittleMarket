@@ -24,10 +24,12 @@ const useStyles= makeStyles((theme)=>({
 
 export const Login = () =>{
     const classes = useStyles();
+
     const [values,setValues]= React.useState({
         password:"",
         showPassword: false
     });
+
     const handleChange=(prop)=>(event)=>{
         setValues({...values,[prop]:event.target.value});
     }
@@ -37,7 +39,7 @@ export const Login = () =>{
 
     return (
         <>
-          <div class="container">
+          <div>
             <Grid container alignItems="center" direction="column" justify="center">
                 <div className="header">Inicia Sesión</div>
                 <img src={user} alt="Login-logo" className="img-login"/>
@@ -48,7 +50,7 @@ export const Login = () =>{
                 <Grid item xs={12}>
                         <FormControl className={clsx(classes.margin, classes.textField)}>
                             <InputLabel htmlFor="input-with-icon-adornment">Correo electronico</InputLabel>
-                            <Input id="correo-inicio" 
+                            <Input id="correo-inicio"
                             startAdornment={
                                 <InputAdornment position="start">
                                     <Email/>
@@ -60,7 +62,7 @@ export const Login = () =>{
                     <Grid item xs={12}>
                         <FormControl className={clsx(classes.margin, classes.textField)}>
                             <InputLabel htmlFor="input-with-icon-adornment">Contraseña</InputLabel>
-                            <Input id="contraseña-inicio" 
+                            <Input id="contraseña-inicio"
                             type={values.showPassword?"text":"password"}
                             value={values.password}
                             onChange={handleChange("password")}
@@ -78,7 +80,7 @@ export const Login = () =>{
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant="contained" className={classes.button}>Iniciar sesión</Button>
+                        <Button type="submit" variant="contained" className={classes.button}>Iniciar sesión</Button>
                     </Grid>
                 </Grid>
             </form>

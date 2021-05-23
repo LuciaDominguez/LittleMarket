@@ -1,10 +1,11 @@
 import React from 'react'
+import ListItem from './fragments/ListItem'
 
 export const MyShopping=()=> {
     return (
-        <div>
-            <p>Mis compras</p>
-        </div>
+        <>
+            <ListItem/>
+        </>
     )
 }
 

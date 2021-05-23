@@ -100,7 +100,7 @@ export const Signup= ()=> {
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             onClick={handleShowPassword}
-                                        >
+                                            >
                                             {values.showPassword? <Visibility/>: <VisibilityOff/>}
                                         </IconButton>
                                     </InputAdornment>
@@ -120,7 +120,7 @@ export const Signup= ()=> {
                             </FormControl>
                         </Grid>
                         <Grid item xs={12}>
-                            <Button variant="contained" className={classes.button} >Registrar</Button>
+                            <Button type="submit" variant="contained" className={classes.button} >Registrar</Button>
                         </Grid>
                     </Grid>
                 </form>

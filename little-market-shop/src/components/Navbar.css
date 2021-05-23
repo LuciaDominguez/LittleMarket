@@ -28,7 +28,7 @@
 
 .logo{
     width: 20%;
-    height: 5%;
+    height: 10%;
 }
 
 .nav-menu{
@@ -68,7 +68,7 @@
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 920px) {
     .nav-menu{
         display: flex;
         flex-direction: row;

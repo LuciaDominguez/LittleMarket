@@ -1,10 +1,13 @@
 import React from 'react'
+import ProductCards from './fragments/ProductCards'
+import Commentary from './fragments/Commentary'
 
 export const Product=()=> {
     return (
-        <div>
-            <p>Producto</p>
-        </div>
+        <>
+            <ProductCards/>
+            <Commentary/>
+        </>
     )
 }
 

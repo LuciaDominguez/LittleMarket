@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.js'
+import './App.css'
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Index from './components/Index';
 import Login from './components/Login';
@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/profile/:id_usuario" component={Profile}></Route>
         <Route exact path="/shoppingcart/:id_usuario" component={ShoppingCart}></Route>
         <Route exact path="/myshopping/:id_usuario" component={MyShopping}></Route>
-        <Route exact path="/category" component={Category}></Route>
+        <Route exact path="/category/:categoria" component={Category}></Route>
         <Route exact path="/product/:id_producto" component={Product}></Route>
         <Route exact path="/admin" component={Admin}></Route>
         </Switch>
