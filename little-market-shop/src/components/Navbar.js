@@ -10,11 +10,17 @@ import Categories from './Categories';
 
 export const Navbar = () => {
     const [values,setValues]= React.useState({
-        click:false
+        click:false,
+        sesion:false,
+        admin: false
     });
 
     const handleClick = ()=>{
         setValues({...values, click: !values.click})
+    }
+
+    const handleChange = ()=>{
+        setValues({...values, sesion: !values.sesion})
     }
 
     return (
@@ -25,9 +31,9 @@ export const Navbar = () => {
                         <img src={logo} alt="logo" className="logo"></img>
                     </NavLink>
                     <Breadcrumbs aria-label="breadcrumb" className={values.click ? "nav-menu active": "nav-menu"}>
-                        <div className="nav-item"  >
-                            <NavLink exact to="/login" activeClassName="active" className="nav-links">
-                                Iniciar Sesión
+                        <div className="nav-item">
+                            <NavLink onChange={handleChange} exact to={values.sesion ? "/profile/id_usuario=0":"/login"} activeClassName="active" className="nav-links">
+                                {values.sesion ? "Perfil":"Iniciar Sesión"}
                             </NavLink>
                         </div>
                         <div className="nav-item">

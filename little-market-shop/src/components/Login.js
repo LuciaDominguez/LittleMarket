@@ -80,7 +80,7 @@ export const Login = () =>{
                         </FormControl>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button type="submit" variant="contained" className={classes.button}>Iniciar sesión</Button>
+                        <Button type="submit" variant="contained" className={classes.button} href="/profile/id_usuario=0">Iniciar sesión</Button>
                     </Grid>
                 </Grid>
             </form>

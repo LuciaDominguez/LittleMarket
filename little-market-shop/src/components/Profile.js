@@ -142,6 +142,7 @@ export const Profile=()=> {
                     <div className="buttons">
                         <Button variant="contained">Eliminar cuenta</Button>
                     </div>
+                    <Button variant="contained">Cerrar Sesion</Button>
             </div>
         </>
     )

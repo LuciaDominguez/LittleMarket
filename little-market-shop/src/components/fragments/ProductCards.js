@@ -66,6 +66,7 @@ export const ProductCards=()=> {
                                   <Grid item>
                                      <div className="information">
                                      <Button style={{background:"#32f444"}} variant="contained" startIcon={<ShoppingCart/>} className={classes.buttonA}>Comprar</Button>
+                                     <Button style={{background:"#32f444"}} variant="contained" startIcon={<ShoppingCart/>} className={classes.buttonA}>Carrito</Button>
                                       <Button style={{background:"#32f444"}} variant="contained" startIcon={<ThumbUp/>} className={classes.buttonA}>Me gusta</Button>
                                       <div className="likes"><h3>Le gusta a: <label id="like">64</label><label> personas</label></h3></div>
                                      </div>                                   

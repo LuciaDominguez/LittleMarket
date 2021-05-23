@@ -28,7 +28,7 @@ export const CreateCategory=()=> {
     return (
         <>
              <div className="container">
-                <h1 className="header">Crear producto</h1>
+                <h1 className="header">Crear Categoria</h1>
                     <form>
                     <div className="box">
                         <FormControl className={clsx(classes.margin, classes.textField)}>
