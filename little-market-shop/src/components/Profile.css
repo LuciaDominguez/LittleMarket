@@ -1,0 +1,32 @@
+.container{
+    width: auto;
+    padding: 20px;
+    margin: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.box{
+    display:block;
+}
+
+.buttons{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+@media screen and (max-width:600px) {
+    .container{
+        width: auto;
+        padding: 5px;
+        margin: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .buttons{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+}

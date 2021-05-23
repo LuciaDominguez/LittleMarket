@@ -1,0 +1,10 @@
+.commentary{
+    width: 700px;
+}
+
+@media screen and (max-width:600px) {
+
+    .commentary{
+    width: 300px;
+}
+}
