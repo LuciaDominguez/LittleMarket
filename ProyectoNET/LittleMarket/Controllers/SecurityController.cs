@@ -1,5 +1,6 @@
 ﻿using LittleMarket.Model;
 using LittleMarket.Model.ModelView;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,7 @@ namespace LittleMarket.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class SecurityController : ControllerBase
-    {    
+    {
         private LittleMarketBDContext dbContext;
         private UserManager<AspNetUsers> UserManager;
         private SignInManager<AspNetUsers> SignInManager;
@@ -51,12 +52,13 @@ namespace LittleMarket.Controllers
 
                 var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());
 
-                var usuarios = dbContext.AspNetUsers
+                /*var usuarios = dbContext.AspNetUsers
                         .Where(u => u.Email == usuario.Correo)
-                        .FirstOrDefault();
+                        .FirstOrDefault();*/
 
+                user.Nombre = usuario.Nombre;
                 user.ApellidoMaterno = usuario.ApellidoMaterno;
-                usuarios.ApellidoPaterno = usuario.ApellidoPaterno;
+                user.ApellidoPaterno = usuario.ApellidoPaterno;
 
                 dbContext.SaveChanges();
 
@@ -83,7 +85,7 @@ namespace LittleMarket.Controllers
                     return StatusCode(err.HttpStatusCode, err);
                 }*/
 
-                var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());
+                var user = await UserManager.FindByEmailAsync(usuario.Correo.ToUpper());    
                 var userN = await UserManager.FindByNameAsync(usuario.Nombre.ToUpper());
 
                 user = user ?? userN;
@@ -100,8 +102,8 @@ namespace LittleMarket.Controllers
                 var key = Encoding.ASCII.GetBytes(keyStr);
 
                 var claims = new ClaimsIdentity(new[] {
-                    new Claim( ClaimTypes.NameIdentifier, usuario.Id),
-                    new Claim( ClaimTypes.Name, usuario.Nombre)
+                    new Claim( ClaimTypes.NameIdentifier, user.Id),
+                    new Claim( ClaimTypes.Name, user.Nombre)
                 });
 
                 var tokenDescriptor = new SecurityTokenDescriptor

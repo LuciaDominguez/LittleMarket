@@ -11,11 +11,11 @@ namespace LittleMarket.Model
         public string Nombre { get; set; }
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
-        public string Correo { get; set; }
-        public string Contra { get; set; }
-        public int Id_Pais { get; set; }
-        public int Id_Ciudad { get; set; }
-        public int Id_Estado { get; set; }
+        //public string Correo { get; set; }
+        //public string Contra { get; set; }
+        //public int Id_Pais { get; set; }
+        //public int Id_Ciudad { get; set; }
+        //public int Id_Estado { get; set; }
         public bool Activo { get; set; }
         public DateTime UltimaConexion { get; set; }
         public string Telefono { get; set; }

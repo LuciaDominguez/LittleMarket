@@ -95,16 +95,13 @@ namespace LittleMarket.Model
               .IsUnicode(false);
               //.IsRequired();//Es not null
 
-                //entity.HasOne(e => e.Ciudad).WithOne().HasForeignKey(e => e.)
+                /*//entity.HasOne(e => e.Ciudad).WithOne().HasForeignKey(e => e.)
                 entity.Property(e => e.Id_Pais);
                //.IsRequired();//Es not null
                 entity.Property(e => e.Id_Estado);
                //.IsRequired();//Es not null
                 entity.Property(e => e.Id_Ciudad);
-               //.IsRequired();//Es not null
-
-                entity.Property(e => e.Id_Ciudad);
-                //.IsRequired();
+               //.IsRequired();//Es not null*/
 
                 entity.Property(e => e.Activo)
               .HasColumnType("bit");
@@ -115,19 +112,19 @@ namespace LittleMarket.Model
                //.IsRequired();
 
                 entity.Property(e => e.Telefono)
-        .HasMaxLength(13);
+                .HasMaxLength(13);
                 //.IsRequired();
 
                 entity.Property(e => e.FechaDeRegistro)
-            .HasColumnType("DATE");
+                .HasColumnType("DATE");
                 //.IsRequired();
 
                 entity.Property(e => e.FechaDeNacimiento)
-            .HasColumnType("DATE");
+                .HasColumnType("DATE");
                 //.IsRequired();
 
                 entity.Property(e => e.Id_MetodoDePago);
-             //.IsRequired();
+                //.IsRequired();
 
                 /*entity.HasOne(e => e.Estado) // estos son los virtua lpublic de  public virtual Student Student { get; set; }
                   .WithMany(y => y.Usuario) // este es el Icoleccion DE LA CLASE que se conecta que es en Student   public virtual ICollection<StudentSchoolSubject> StudentSchoolSubject { get; set; }

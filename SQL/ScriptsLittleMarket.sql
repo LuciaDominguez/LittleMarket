@@ -78,7 +78,11 @@ ALTER TABLE AspNetUsers
 ADD CONSTRAINT FK_UsuarioCiudad_Ciudad FOREIGN KEY (Id_Ciudad) REFERENCES Ciudad(Id);
 
 ALTER TABLE AspNetUsers
-DROP CONSTRAINT fk_inv_product_id;
+DROP CONSTRAINT FK_UsuarioPais_Pais;
+ALTER TABLE AspNetUsers
+DROP CONSTRAINT FK_UsuarioEstado_Estado;
+ALTER TABLE AspNetUsers
+DROP CONSTRAINT FK_UsuarioCiudad_Ciudad;
 
 //////////////////////////////////////////////////////////// coso aspnetusers ////////////////////////////////////////////////////////////////////////////
 
@@ -189,11 +193,11 @@ CREATE TABLE [dbo].[AspNetUsers](
 	[Nombre] [nvarchar](50) NULL,
 	[ApellidoPaterno] [nvarchar](50) NULL,
 	[ApellidoMaterno] [nvarchar](50) NULL,
-	[Correo] [nvarchar](50) NULL,
-	[Contra] [nvarchar](50) NULL,
-	[Id_Pais] [int] NOT NULL,
-	[Id_Ciudad] [int] NOT NULL,
-	[Id_Estado] [int] NOT NULL,
+	--[Correo] [nvarchar](50) NULL,
+	--[Contra] [nvarchar](50) NULL,
+	--[Id_Pais] [int] NOT NULL,
+	--[Id_Ciudad] [int] NOT NULL,
+	--[Id_Estado] [int] NOT NULL,
 	[Activo] [bit] NOT NULL,
 	[UltimaConexion] [Date] NOT NULL,
 	[Telefono] [nvarchar](13) NULL,
@@ -361,6 +365,8 @@ CONSTRAINT FK_LikeProductoProducto_Producto FOREIGN KEY (Id_Producto) REFERENCES
 GO
 
 select * from AspNetUsers
+
+delete from AspNetUsers where Id = '824705ab-8743-431d-a854-964ff1745c3e'
 
 select * from pedido
 

@@ -39,7 +39,7 @@ namespace LittleMarket.Controllers
 
         // POST api/<PedidoController>
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public IActionResult Create([FromBody] Pedido pedido)
         {
             try
@@ -63,12 +63,14 @@ namespace LittleMarket.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+
         }
 
         // DELETE api/<PedidoController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
         }
     }
 }
