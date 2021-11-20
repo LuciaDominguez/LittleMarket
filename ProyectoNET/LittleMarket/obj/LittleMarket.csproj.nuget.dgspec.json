@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj": {}
+    "D:\\Lucia\\Documentos\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj": {}
   },
   "projects": {
-    "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj": {
+    "D:\\Lucia\\Documentos\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+        "projectUniqueName": "D:\\Lucia\\Documentos\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
         "projectName": "LittleMarket",
-        "projectPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
-        "packagesPath": "C:\\Users\\ROMO\\.nuget\\packages\\",
-        "outputPath": "E:\\Users\\ROMO\\Desktop\\Programacion\\Web 2\\Proyecto\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
+        "projectPath": "D:\\Lucia\\Documentos\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\LittleMarket.csproj",
+        "packagesPath": "C:\\Users\\lucia\\.nuget\\packages\\",
+        "outputPath": "D:\\Lucia\\Documentos\\GitHub\\LittleMarket\\ProyectoNET\\LittleMarket\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ROMO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lucia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
